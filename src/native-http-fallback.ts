@@ -38,11 +38,11 @@ export class NativeHttpFallback implements ConnectionBackend {
     }
 
     protected isNativeHttpAvailable() {
-        if (this.nativeIsForced !== null) {
+        if (!this.nativeIsForced) {
             return this.nativeIsForced;
         }
 
-        if (this.nativeIsAvailable === null) {
+        if (!this.nativeIsAvailable) {
             this.nativeIsAvailable = checkAvailability('cordovaHTTP2') === true;
         }
 
